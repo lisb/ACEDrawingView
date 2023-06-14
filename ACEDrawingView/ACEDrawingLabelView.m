@@ -186,6 +186,11 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     }
 }
 
+- (void)applyLayout
+{
+    //TODO: Implement this method
+}
+
 #pragma mark - Set Control Buttons
 
 - (void)setEnableClose:(BOOL)value

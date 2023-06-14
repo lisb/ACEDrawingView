@@ -668,6 +668,13 @@
     return nil;
 }
 
+- (void)labelViewNeedsConfiguration:(ACEDrawingLabelView *)label
+{
+    if ([self.delegate respondsToSelector:@selector(drawingView:configureTextToolLabelView:)]) {
+        [self.delegate drawingView:self configureTextToolLabelView:label];
+    }
+}
+
 #pragma mark Image Utilities
 
 - (UIImage*)scaleImage:(UIImage *)sourceImage proportionallyToWidth:(CGFloat)width

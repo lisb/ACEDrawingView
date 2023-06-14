@@ -212,12 +212,21 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
     CGRect frame = CGRectMake(firstPoint.x, firstPoint.y, 50, 100);
     
     _labelView = [[ACEDrawingLabelView alloc] initWithFrame:frame];
+
+    [self configureLabelView];
+}
+
+- (void)configureLabelView
+{
     _labelView.delegate     = self.drawingView;
     _labelView.fontSize     = 18.0;
     _labelView.fontName     = self.drawingView.draggableTextFontName ?: [UIFont systemFontOfSize:_labelView.fontSize].fontName;
     _labelView.textColor    = self.lineColor;
     _labelView.closeImage   = self.drawingView.draggableTextCloseImage;
     _labelView.rotateImage  = self.drawingView.draggableTextRotateImage;
+    
+    [_labelView.delegate labelViewNeedsConfiguration:_labelView];
+    [_labelView applyLayout];
 }
 
 - (void)moveFromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint

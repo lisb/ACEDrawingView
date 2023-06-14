@@ -146,6 +146,8 @@
  */
 - (void)resizeInRect:(CGRect)rect;
 
+- (void)applyLayout;
+
 @end
 
 @protocol ACEDrawingLabelViewDelegate <NSObject>
@@ -207,6 +209,14 @@
  *  @param label    A label object informing the delegate about action.
  */
 - (void)labelViewDidEndEditing:(ACEDrawingLabelView *)label;
+
+/**
+ *  Called just before a label is displayed. Configure values to make it look
+ *  the way you want.
+ *
+ *  @param label A label object informing the delegate about action.
+ */
+- (void)labelViewNeedsConfiguration:(ACEDrawingLabelView *)label;
 
 @end
 
