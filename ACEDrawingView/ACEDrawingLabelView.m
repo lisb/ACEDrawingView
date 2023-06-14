@@ -476,6 +476,10 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [textField adjustsWidthToFillItsContents];
+}
+
 #pragma mark - Additional Properties
 
 - (BOOL)isEditing
