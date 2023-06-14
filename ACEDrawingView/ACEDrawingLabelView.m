@@ -188,7 +188,9 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
 
 - (void)applyLayout
 {
-    //TODO: Implement this method
+    // FIXME: this is tricky
+    _labelTextField.text = @" ";
+    [_labelTextField adjustsWidthToFillItsContents];
 }
 
 #pragma mark - Set Control Buttons
@@ -460,6 +462,7 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     }
     
     [textField adjustsWidthToFillItsContents];
+    textField.text = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
