@@ -93,6 +93,8 @@
  */
 @property (nonatomic) BOOL showsContentShadow;
 
+@property (nonatomic) CGFloat maximuFontSize;
+
 /**
  *  Shows close button.
  *

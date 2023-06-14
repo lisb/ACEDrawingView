@@ -428,7 +428,7 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
         CGRect scaleRect = CGRectScale(self.initialBounds, scale, scale);
         
         if (scaleRect.size.width >= (1+self.globalInset*2 + 20) && scaleRect.size.height >= (1+self.globalInset*2 + 20)) {
-            if (self.fontSize < 100 || CGRectGetWidth(scaleRect) < CGRectGetWidth(self.bounds)) {
+            if (self.fontSize < self.maximuFontSize || CGRectGetWidth(scaleRect) < CGRectGetWidth(self.bounds)) {
                 [self.labelTextField adjustsFontSizeToFillRect:scaleRect];
                 [self setBounds:scaleRect];
             }
