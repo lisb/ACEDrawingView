@@ -499,7 +499,7 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
 
 @implementation UITextField (DynamicFontSize)
 
-static const NSUInteger ACELVMaximumFontSize = 101;
+static const NSUInteger ACELVMaximumFontSize = 501;
 static const NSUInteger ACELVMinimumFontSize = 9;
 
 - (void)adjustsFontSizeToFillRect:(CGRect)newBounds
