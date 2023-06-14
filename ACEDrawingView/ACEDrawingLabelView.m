@@ -470,8 +470,9 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     if (!self.isShowingEditingHandles) {
         [self showEditingHandles];
     }
-    [textField adjustsWidthToFillItsContents];
-    
+    if([textField.text length] != 0) {
+        [textField adjustsWidthToFillItsContents];
+    }
     return YES;
 }
 
