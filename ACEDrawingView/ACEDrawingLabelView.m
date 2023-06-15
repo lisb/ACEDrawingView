@@ -171,7 +171,10 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
         [self setEnableClose:YES];
         [self setEnableRotate:YES];
         [self setShowsContentShadow:YES];
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(textFieldDidChange:)
+                                                     name:UITextFieldTextDidChangeNotification
+                                                   object:_labelTextField];
         [self showEditingHandles];
         [self.labelTextField becomeFirstResponder];
     }
@@ -190,6 +193,14 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
 {
     // FIXME: this is tricky
     _labelTextField.text = @" ";
+    [_labelTextField adjustsWidthToFillItsContents];
+}
+
+- (void)textFieldDidChange:(NSNotification *)notification
+{
+    if (!self.isShowingEditingHandles) {
+        [self showEditingHandles];
+    }
     [_labelTextField adjustsWidthToFillItsContents];
 }
 
@@ -463,17 +474,6 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     
     [textField adjustsWidthToFillItsContents];
     textField.text = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-    if (!self.isShowingEditingHandles) {
-        [self showEditingHandles];
-    }
-    if([textField.text length] != 0) {
-        [textField adjustsWidthToFillItsContents];
-    }
-    return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
