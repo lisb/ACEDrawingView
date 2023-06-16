@@ -252,19 +252,22 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
 
 #pragma mark - Set Text Field
 
-- (void)setFontName:(NSString *)name
+- (UIFont *)font
 {
-    if (name.length > 0) {
-        _fontName = name;
-        self.labelTextField.font = [UIFont fontWithName:_fontName size:self.fontSize];
-        [self.labelTextField adjustsWidthToFillItsContents];
-    }
+    return self.labelTextField.font;
+}
+
+- (void)setFont:(UIFont *)font
+{
+  self.labelTextField.font = font;
+  [self.labelTextField adjustsWidthToFillItsContents];
 }
 
 - (void)setFontSize:(CGFloat)size
 {
     _fontSize = size;
-    self.labelTextField.font = [UIFont fontWithName:self.fontName size:_fontSize];
+    UIFontDescriptor *descriptor = self.font.fontDescriptor;
+    self.labelTextField.font = [UIFont fontWithDescriptor:descriptor size:_fontSize];;
 }
 
 - (void)setTextColor:(UIColor *)color
@@ -507,7 +510,8 @@ static const NSUInteger ACELVMinimumFontSize = 9;
     NSString *text = (![self.text isEqualToString:@""] || !self.placeholder) ? self.text : self.placeholder;
     
     for (NSUInteger i = ACELVMaximumFontSize; i > ACELVMinimumFontSize; i--) {
-        UIFont *font = [UIFont fontWithName:self.font.fontName size:(CGFloat)i];
+        UIFontDescriptor *descriptor = self.font.fontDescriptor;
+        UIFont *font = [UIFont fontWithDescriptor:descriptor size:(CGFloat)i];
         NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text
                                                                              attributes:@{ NSFontAttributeName : font }];
         

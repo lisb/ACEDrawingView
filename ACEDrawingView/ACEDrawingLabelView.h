@@ -49,13 +49,6 @@
 @property (nonatomic, strong) UIColor *borderColor;
 
 /**
- * Name of text field font.
- *
- * Default: current system font
- */
-@property (nonatomic, copy) NSString *fontName;
-
-/**
  * Size of text field font.
  */
 @property (nonatomic, assign) CGFloat fontSize;
@@ -121,6 +114,8 @@
  */
 @property (nonatomic, readonly) BOOL isEditing;
 
+- (UIFont *)font;
+- (void)setFont:(UIFont *)font;
 /**
  *  Hides border and control buttons.
  */
