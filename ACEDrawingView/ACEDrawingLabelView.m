@@ -484,6 +484,13 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     [textField adjustsWidthToFillItsContents];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField*)textField
+{
+    [textField resignFirstResponder];
+    [self hideEditingHandles];
+    return YES;
+}
+
 #pragma mark - Additional Properties
 
 - (BOOL)isEditing
