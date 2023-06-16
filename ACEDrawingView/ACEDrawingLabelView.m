@@ -129,6 +129,7 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
         self.labelTextField.backgroundColor = [UIColor clearColor];
         self.labelTextField.tintColor = [UIColor redColor];
         self.labelTextField.textColor = [UIColor whiteColor];
+        self.labelTextField.returnKeyType = UIReturnKeyDone;
         self.labelTextField.text = @"";
         
         self.border = [CAShapeLayer layer];
