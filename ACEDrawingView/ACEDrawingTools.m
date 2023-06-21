@@ -227,7 +227,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2)
     _labelView.rotateImage  = self.drawingView.draggableTextRotateImage;
     
     [_labelView.delegate labelViewNeedsConfiguration:_labelView];
-    [_labelView applyLayout];
+    [_labelView applyLayout:YES];
 }
 
 - (void)moveFromPoint:(CGPoint)startPoint toPoint:(CGPoint)endPoint

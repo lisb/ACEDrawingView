@@ -143,7 +143,7 @@
  */
 - (void)resizeInRect:(CGRect)rect;
 
-- (void)applyLayout;
+- (void)applyLayout:(BOOL)isInit;
 
 @end
 

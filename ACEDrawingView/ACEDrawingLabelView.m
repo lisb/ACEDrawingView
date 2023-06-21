@@ -190,10 +190,12 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     }
 }
 
-- (void)applyLayout
+- (void)applyLayout:(BOOL)isInit
 {
     // FIXME: this is tricky
-    _labelTextField.text = @" ";
+    if (isInit) {
+        _labelTextField.text = @" ";
+    }
     [_labelTextField adjustsWidthToFillItsContents];
 }
 
