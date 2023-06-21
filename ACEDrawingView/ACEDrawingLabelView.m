@@ -388,8 +388,8 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
     } else if (recognizer.state == UIGestureRecognizerStateEnded) {
         [self setCenter:[self estimatedCenter]];
         
-        if ([self.delegate respondsToSelector:@selector(labelViewDidEndEditing:)]) {
-            [self.delegate labelViewDidEndEditing:self];
+        if ([self.delegate respondsToSelector:@selector(labelViewDidEndMoving:)]) {
+            [self.delegate labelViewDidEndMoving:self];
         }
     }
 }
@@ -453,8 +453,8 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
             [self.delegate labelViewDidChangeEditing:self];
         }
     } else if ([recognizer state] == UIGestureRecognizerStateEnded) {
-        if ([self.delegate respondsToSelector:@selector(labelViewDidEndEditing:)]) {
-            [self.delegate labelViewDidEndEditing:self];
+        if ([self.delegate respondsToSelector:@selector(labelViewDidEndMoving:)]) {
+            [self.delegate labelViewDidEndMoving:self];
         }
     }
 }

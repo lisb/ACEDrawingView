@@ -205,7 +205,8 @@
  *
  *  @param label    A label object informing the delegate about action.
  */
-- (void)labelViewDidEndEditing:(ACEDrawingLabelView *)label;
+- (void)labelViewDidEndMoving:(ACEDrawingLabelView *)label;
+
 
 /**
  *  Called just before a label is displayed. Configure values to make it look
