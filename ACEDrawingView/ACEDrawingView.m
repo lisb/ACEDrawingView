@@ -625,6 +625,12 @@
     if (tool) { [self.undoStates addObject:[tool captureToolState]]; }
 }
 
+- (void)labelViewDidEndEditing:(ACEDrawingLabelView *)label {
+    if ([self.delegate respondsToSelector:@selector(drawingView:didEndEditingLabelView:)]) {
+        [self.delegate drawingView:self didEndEditingLabelView:label];
+    }
+}
+
 - (void)labelViewWillShowEditingHandles:(ACEDrawingLabelView *)label
 {
     // make sure all text tool handles are hidden before we show the next one

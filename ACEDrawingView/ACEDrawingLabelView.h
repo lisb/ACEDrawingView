@@ -187,6 +187,13 @@
 - (void)labelViewDidStartEditing:(ACEDrawingLabelView *)label;
 
 /**
+ *  Occurs when label ends editing.
+ *
+ *  @param label    A label object informing the delegate about action.
+ */
+- (void)labelViewDidEndEditing:(ACEDrawingLabelView *)label;
+
+/**
  *  Occurs when label starts move or rotate.
  *
  *  @param label    A label object informing the delegate about action.

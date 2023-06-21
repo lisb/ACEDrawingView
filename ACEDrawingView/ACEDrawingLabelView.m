@@ -483,7 +483,9 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    [textField adjustsWidthToFillItsContents];
+    if ([self.delegate respondsToSelector:@selector(labelViewDidEndEditing:)]) {
+        [self.delegate labelViewDidEndEditing:self];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField
