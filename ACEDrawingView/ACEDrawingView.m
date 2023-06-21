@@ -612,6 +612,12 @@
     }
 }
 
+- (void)labelViewDidStartEditing:(ACEDrawingLabelView *)label {
+    if ([self.delegate respondsToSelector:@selector(drawingView:didStartEditingLabelView:)]) {
+        [self.delegate drawingView:self didStartEditingLabelView:label];
+    }
+}
+
 - (void)labelViewDidBeginEditing:(ACEDrawingLabelView *)label
 {
     ACEDrawingDraggableTextTool *tool = [self draggableTextToolForLabel:label];
