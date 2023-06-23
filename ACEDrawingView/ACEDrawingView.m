@@ -384,6 +384,7 @@
             [self.pathArray addObject:self.currentTool];
             
             [self finishDrawing];
+            [self.draggableTextView startEditing];
         }
     } else {
         [self finishDrawing];

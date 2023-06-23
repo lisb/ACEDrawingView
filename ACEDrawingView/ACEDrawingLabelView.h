@@ -145,6 +145,8 @@
 
 - (void)applyLayout:(BOOL)isInit;
 
+- (void)startEditing;
+
 @end
 
 @protocol ACEDrawingLabelViewDelegate <NSObject>

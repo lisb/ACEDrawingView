@@ -177,7 +177,6 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
                                                      name:UITextFieldTextDidChangeNotification
                                                    object:_labelTextField];
         [self showEditingHandles];
-        [self.labelTextField becomeFirstResponder];
     }
     return self;
 }
@@ -197,6 +196,11 @@ CG_INLINE CGSize CGAffineTransformGetScale(CGAffineTransform t)
         _labelTextField.text = @" ";
     }
     [_labelTextField adjustsWidthToFillItsContents];
+}
+
+- (void)startEditing
+{
+    [_labelTextField becomeFirstResponder];
 }
 
 - (void)textFieldDidChange:(NSNotification *)notification
