@@ -1,0 +1,5 @@
+module ACEDrawingView {
+    header "ACEDrawingView.h"
+
+    export *
+}
